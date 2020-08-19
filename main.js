@@ -14,6 +14,10 @@ let colorStates = {
   "": "red"
 };
 
+let articleHearts = document.querySelector('.likes');
+
+
+
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes

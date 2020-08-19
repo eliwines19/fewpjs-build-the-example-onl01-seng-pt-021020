@@ -7,10 +7,6 @@ const FULL_HEART = '♥'
 const heartColorSwitcher = {'♡': '♥', '♥':'♡'};
 const hearts = document.querySelectorAll(".like-glyph");
 const modal = document.getElementById("modal");
-let colorStates = {
-  "red" : "",
-  "": "red"
-};
 
 let articleHearts = document.querySelectorAll(".like");
 

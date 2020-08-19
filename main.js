@@ -8,27 +8,28 @@ const heartColorSwitcher = {'♡': '♥', '♥':'♡'};
 const hearts = document.querySelectorAll(".like-glyph");
 const modal = document.getElementById("modal");
 
-let articleHearts = document.querySelectorAll(".like");
-
-function likeCallback(e) {
-  let heart = e.target;
-  mimicServerCall("bogusUrl")
-   //OR: mimicServerCall("bogusUrl", {forceFailure: true})
-    .then(function(serverMessage){
-       heart.innerText = glyphStates[heart.innerText];
-       heart.style.color = colorStates[heart.style.color];
+document.addEventListener("DOMContentLoaded", function() {
+  hearts.forEach(heart => {
+    heart.addEventListener("click", (e) => {
+      e.preventDeafault();
+      mimicServerCall()
+      .then(() => {
+        if (heart.innerHTML = EMPTY_HEART) {
+          heart.setAttribute("class", "activated-heart");
+        } else {
+          heart.setAttribute("class", "like-glyph");
+        }
+        heart.innerHTML = heartColorSwitcher[heart.innerHTML];
+      })
+      .catch(() => {
+        modal.removeAttribute("class");
+        setTimeout(function() {
+          modal.setAttribute("class", "hidden");
+        }, 3000);
+      })
     })
-    .catch(function(error) {
-      // Basic
-      // alert("Something went wrong!");
-      // or....
-      document.getElementById("modal").className = "";
-    });
-}
-
-for (let glyph of articleHearts) {
-  glyph.addEventListener("click", likeCallback);
-}
+  })
+});
 
 
 //------------------------------------------------------------------------------

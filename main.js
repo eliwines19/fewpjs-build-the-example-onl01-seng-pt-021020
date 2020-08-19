@@ -10,7 +10,7 @@ let glyphStates = {
 };
 
 let colorStates = {
-  "red": "",
+  "red" : "",
   "": "red"
 };
 

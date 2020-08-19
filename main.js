@@ -16,7 +16,21 @@ let colorStates = {
 
 let articleHearts = document.querySelector('.like');
 
+function likeCallback(e) {
+  let heart = e.target;
+  mimicServerCall("URL");
+  .then(function(serverMessage) {
+    heart.innerText = glyphStates[heart.innerText];
+    heart.style.color = colorStates[heart.style.color];
+  })
+  .catch(function(error) {
+    document.getElementById('modal').className = "";
+  })
+};
 
+for (let glyph of articleHearts) {
+  glyph.addEventListener("click", likeCallback);
+}
 
 
 //------------------------------------------------------------------------------

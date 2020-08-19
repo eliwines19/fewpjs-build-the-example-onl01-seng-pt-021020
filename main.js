@@ -11,7 +11,7 @@ const modal = document.getElementById("modal");
 document.addEventListener("DOMContentLoaded", function() {
   hearts.forEach(heart => {
     heart.addEventListener("click", (e) => {
-      e.preventDeafault();
+      e.preventDefault();
       mimicServerCall()
       .then(() => {
         if (heart.innerHTML = EMPTY_HEART) {

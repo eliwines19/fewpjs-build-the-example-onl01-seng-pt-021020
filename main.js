@@ -14,7 +14,7 @@ let colorStates = {
   "": "red"
 };
 
-let articleHearts = document.querySelector('.like');
+let articleHearts = document.querySelectorAll(".like");
 
 function likeCallback(e) {
   let heart = e.target;

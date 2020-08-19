@@ -4,7 +4,32 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+const heartColorSwitcher = {'♡': '♥', '♥':'♡'};
+const hearts = document.querySelectorAll(".like-glyph");
+const modal = document.getElementById("modal");
 
+document.addEventListener("DOMContentLoaded", function() {
+  hearts.forEach(heart => {
+    heart.addEventListener("click", (e) => {
+      e.preventDefault();
+      mimicServerCall()
+      .then(() => {
+        if (heart.innerHTML = EMPTY_HEART) {
+          heart.setAttribute("class", "activated-heart");
+        } else {
+          heart.setAttribute("class", "like-glyph");
+        }
+        heart.innerHTML = heartColorSwitcher[heart.innerHTML];
+      })
+      .catch(() => {
+        modal.removeAttribute("class");
+        setTimeout(function() {
+          modal.setAttribute("class", "hidden");
+        }, 3000);
+      })
+    })
+  })
+});
 
 
 //------------------------------------------------------------------------------

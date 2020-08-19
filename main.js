@@ -5,7 +5,8 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 
 const heartColorSwitcher = {'♡': '♥', '♥':'♡'};
-
+const hearts = document.querySelectorAll(".like-glyph");
+const modal = document.getElementById("modal");
 let colorStates = {
   "red" : "",
   "": "red"
